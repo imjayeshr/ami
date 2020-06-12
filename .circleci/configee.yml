@@ -1,0 +1,39 @@
+version: 2
+jobs:
+  orbs:
+  # Declare a dependency on the welcome-orb
+  welcome: circleci/welcome-orb@0.4.1
+  validate:
+    docker:
+      - image: hashicorp/packer:1.1.1
+    working_directory: ~/packer
+    steps:
+      - checkout
+      - run:
+          name: Validate ami
+          command: packer validate ./ami6.json
+  build-ami:
+    docker:
+      - image: hashicorp/packer:1.1.1
+    working_directory: ~/packer
+    steps:
+      - checkout
+    - attach_workspace:
+          at: ~/packer
+      - run:
+          name: Build AMI
+          command: ./buildAmi.sh
+          no_output_timeout: 30m
+
+workflows:
+  version: 2
+  welcome:
+    # Run the welcome/run job in its own container
+    jobs:
+      - welcome/run
+  build-and-deploy:
+    jobs:
+      - validate
+      - build-ami:
+          requires:
+            - validate
