@@ -18,8 +18,8 @@
       "subnet_id" : "{{user `subnet_id`}}",
       "source_ami" : "{{user `source_ami`}}",
       "ssh_username" : "{{user `ssh_username`}}",
-      "ami_name": "Node-Angular-AMI7-a4-{{timestamp}}",
-      "ami_description" : "Ubuntu AMI for Node and Angular for Assignment 4",
+      "ami_name": "Assignment_06_{{timestamp}}",
+      "ami_description" : "AMI for Assignment 6",
       "ami_users" : "{{user `ami_users`}}",
       "launch_block_device_mappings" : [
           {
@@ -40,6 +40,7 @@
           "sudo apt-get install -y nodejs",            
           "sudo apt-get install  -y build-essential",            
           "sudo npm install -g @angular/cli",
+          "sudo npm install -g pm2",
           "sudo apt-get update",
           "sudo apt-get install -y ruby",
           "sudo apt-get install  -y wget",
