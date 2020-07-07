@@ -49,7 +49,9 @@
           "chmod +x ./install",
           "sudo ./install auto",
           "sudo apt-get install -y python-pip",
-          "sudo pip install awscli"
+          "sudo pip install awscli",
+          "sudo wget https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb",
+          "sudo dpkg -i -E ./amazon-cloudwatch-agent.deb"
 
     ]
   }]
