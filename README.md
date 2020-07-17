@@ -1,5 +1,5 @@
 # Network Structures and Cloud Computing
-## Assignment 8
+## Assignment 8 :
 ## Build AMI
 ## Steps to build Ami :
 1. Validate the json file using the command -"packer validate "_filename.json" "
